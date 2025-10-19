@@ -1,0 +1,10 @@
+require("setup")
+require("options")
+require("keymaps")
+-- plugins
+require("plugins.colorscheme")
+require("plugins.completions")
+require("plugins.telescope")
+require("plugins.nvim-tree")
+require("plugins.lualine")
+require("plugins.colorizer")
