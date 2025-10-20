@@ -17,16 +17,6 @@ local function duplicate(direction)
 	cmd(act[direction])
 end
 
-
-keymap({ "n", "v" }, "<RightMouse>", function()
-	require('menu.utils').delete_old_menus()
-	exec '"normal! \\<RightMouse>"'
-	local buf = vim.api.nvim_win_get_buf(vim.fn.getmousepos().winid)
-	local options = vim.bo[buf].ft == "NvimTree" and "nvimtree" or "default"
-
-	require("menu").open(options, { mouse = true })
-end, {})
-
 -- Quit Neovim
 keymap("n", "<leader>q", ":q<cr>", { desc = "Quit Neovim", remap = true })
 keymap("n", "<C-q>", "<cmd>quit<CR>", { noremap = true, silent = true })
@@ -35,6 +25,16 @@ keymap("i", "<C-q>", "<cmd>quit<CR>", { noremap = true, silent = true })
 keymap("c", "<C-q>", "<cmd>quit<CR>", { noremap = true, silent = true })
 keymap("i", "<RightMouse>", "<cmd>popup! PopUp<cr>", { noremap = true, silent = true })
 keymap("v", "<RightMouse>", "<C-\\><C-g>gv<cmd>popup! PopUp<cr>", { noremap = true, silent = true })
+
+-- Menu Neovim
+keymap({ "n", "v" }, "<RightMouse>", function()
+	require('menu.utils').delete_old_menus()
+	exec '"normal! \\<RightMouse>"'
+	local buf = vim.api.nvim_win_get_buf(vim.fn.getmousepos().winid)
+	local options = vim.bo[buf].ft == "NvimTree" and "nvimtree" or "default"
+
+	require("menu").open(options, { mouse = true })
+end, {})
 
 -- Find File
 keymap("n", "<C-p>", function()
@@ -47,7 +47,7 @@ keymap({ "n", "i", "v" }, "<C-S-Down>", function()
 	duplicate("down")
 end, { silent = true, desc = "Duplicate line down" })
 keymap({ "n", "i", "v" }, "<C-S-Up>", function()
-    duplicate("up")
+	duplicate("up")
 end, { silent = true, desc = "Duplicate line up" })
 
 
@@ -59,18 +59,16 @@ keymap("n", "<A-k>", ":m .-2<CR>==", { desc = "Move line up" })
 keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down" })
 keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selected lines up" })
 
--- Comment code (MAINTENENCE)
---keymap('n', '<C-_>', api.toggle.linewise.current)
---keymap('n', '<C-\\>', api.toggle.blockwise.current)
+-- Comment code
 keymap("n", "<C-/>", "gcc", { desc = "toggle comment", remap = true })
 keymap("v", "<C-/>", "gc", { desc = "toggle comment", remap = true })
 keymap("i", "<C-/>", "<ESC>gc", { desc = "toggle comment", remap = true })
 
 -- Increment/decrement
-keymap("n", "+", "<C-x>", { desc = "Increment numbers", noremap = true })
-keymap("n", "-", "<C-z>", { desc = "Decrement numbers", noremap = true })
+-- keymap("n", "+", "<C-x>", { desc = "Increment numbers", noremap = true })
+-- keymap("n", "-", "<C-z>", { desc = "Decrement numbers", noremap = true })
 
--- Save current file
+-- Save current file (Ctrl+s)
 keymap("n", "<C-s>", ":w<cr>", { desc = "Save file", remap = true })
 
 -- Select all (Ctrl+A)
