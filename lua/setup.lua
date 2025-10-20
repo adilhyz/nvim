@@ -52,7 +52,13 @@ use("tpope/vim-fugitive")
 use("neovim/nvim-lspconfig")
 
 -- Comment
-use({"numToStr/Comment.nvim", config = function() require('Comment').setup()end })
+use({
+    'numToStr/Comment.nvim',
+    event = 'BufRead',
+    config = function()
+        require('Comment').setup()
+    end
+})
 
 -- Go to file
 use({
