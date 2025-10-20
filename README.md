@@ -2,16 +2,13 @@
 ![Banner](./banner.png)
 </center>
 
-
-> [!INFO]
-> Dotfiles nvim, With Lazy Vim Plugin
+Nvim dotfiles, With lazy.nvim(https://github.com/folke/lazy.nvim)💤 Plugin
 
 
 ![Preview](./preview.png)
 
 
-> [!CHECK]
-> Installation
+> ## Installation
 
 
 ```bash
