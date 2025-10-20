@@ -1,22 +1,31 @@
 local keymap = vim.keymap.set
+local exec = vim.cmd.exec
 local cmd = vim.cmd
-local builtin = require("telescope.builtin")
-local api = require('Comment.api')
-local config = require('Comment.config'):get()
-
+-- local builtin = require("telescope.builtin")
+-- local builtin = require("plugins.telescope")
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 local function duplicate(direction)
-    local mode = vim.fn.mode()
-    local actions = {
-        ["v"] = { down = "normal! y`>p", up = "normal! y`<P" },
-        ["V"] = { down = "normal! y`>p", up = "normal! y`<P" },
-        ["default"] = { down = "t .", up = "t -1" },
-    }
-    local act = actions[mode] or actions["default"]
-    cmd(act[direction])
+	local mode = vim.fn.mode()
+	local actions = {
+		["v"] = { down = "normal! y`>p", up = "normal! y`<P" },
+		["V"] = { down = "normal! y`>p", up = "normal! y`<P" },
+		["default"] = { down = "t .", up = "t -1" },
+	}
+	local act = actions[mode] or actions["default"]
+	cmd(act[direction])
 end
+
+
+keymap({ "n", "v" }, "<RightMouse>", function()
+	require('menu.utils').delete_old_menus()
+	exec '"normal! \\<RightMouse>"'
+	local buf = vim.api.nvim_win_get_buf(vim.fn.getmousepos().winid)
+	local options = vim.bo[buf].ft == "NvimTree" and "nvimtree" or "default"
+
+	require("menu").open(options, { mouse = true })
+end, {})
 
 -- Quit Neovim
 keymap("n", "<leader>q", ":q<cr>", { desc = "Quit Neovim", remap = true })
@@ -29,13 +38,13 @@ keymap("v", "<RightMouse>", "<C-\\><C-g>gv<cmd>popup! PopUp<cr>", { noremap = tr
 
 -- Find File
 keymap("n", "<C-p>", function()
-    builtin.find_files({ hidden = true, follow = true })
+	require("telescope.builtin").find_files({ hidden = true, follow = true })
 end, { desc = "Find files" })
 
 -- Duplicate line (Ctrl+Shift+Up/Down)
 keymap({ "n", "i", "v" }, "<C-S-Up>", "<Esc>yyP`^a", { noremap = true, silent = true, desc = "Duplicate line up" })
 keymap({ "n", "i", "v" }, "<C-S-Down>", function()
-    duplicate("down")
+	duplicate("down")
 end, { silent = true, desc = "Duplicate line down" })
 keymap({ "n", "i", "v" }, "<C-S-Up>", function()
     duplicate("up")
@@ -51,8 +60,11 @@ keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down" })
 keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selected lines up" })
 
 -- Comment code (MAINTENENCE)
-keymap('n', '<C-_>', api.toggle.linewise.current)
-keymap('n', '<C-\\>', api.toggle.blockwise.current)
+--keymap('n', '<C-_>', api.toggle.linewise.current)
+--keymap('n', '<C-\\>', api.toggle.blockwise.current)
+keymap("n", "<C-/>", "gcc", { desc = "toggle comment", remap = true })
+keymap("v", "<C-/>", "gc", { desc = "toggle comment", remap = true })
+keymap("i", "<C-/>", "<ESC>gc", { desc = "toggle comment", remap = true })
 
 -- Increment/decrement
 keymap("n", "+", "<C-x>", { desc = "Increment numbers", noremap = true })
@@ -108,21 +120,27 @@ keymap("n", "<C-d>", "*N", { desc = "Select next occurrence" })
 keymap("v", "<Tab>", ">gv", { desc = "Indenting", silent = true, noremap = true })
 keymap("v", "<S-Tab>", "<gv", { desc = "Indenting", silent = true, noremap = true })
 
--- window management
-keymap("n", "<leader>sv", "<C-w>v") -- split window vertically
-keymap("n", "<leader>sh", "<C-w>s") -- split window horizontally
-keymap("n", "<leader>se", "<C-w>=") -- make split windows equal width & height
-keymap("n", "<leader>sx", ":close<CR>") -- close current split window
+-- window management split
+keymap("n", "<leader>sv", "<C-w>v")
+keymap("n", "<leader>sh", "<C-w>s")
+keymap("n", "<leader>se", "<C-w>=")
+keymap("n", "<leader>sx", ":close<CR>")
 
 -- New tab
 keymap("n", "te", ":tabedit")
-keymap("n", "<leader>tt", ":tabnew<CR>") -- open new tab
-keymap("n", "<leader>tq", ":tabclose<CR>") -- close current tab
-keymap("n", "<leader>tn", ":tabn<CR>") --  go to next tab
-keymap("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
+keymap("n", "<leader>tt", ":tabnew<CR>")
+keymap("n", "<leader>tq", ":tabclose<CR>")
+keymap("n", "<leader>tn", ":tabn<CR>")
+keymap("n", "<leader>tp", ":tabp<CR>")
 
 -- nvim-tree
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
+keymap("n", "<leader>e", ":NvimTreeToggle<CR>")
+
+-- Barbar
+keymap("n", "<Tab>", ":BufferNext<CR>", { desc = "Move to next tab", noremap = true })
+keymap("n", "<S-Tab>", ":BufferPrevious<CR>", { desc = "Move to previous tab", noremap = true })
+keymap("n", "<leader>x", ":BufferClose<CR>", { desc = "Buffer close", noremap = true })
+keymap("n", "<A-p>", ":BufferPin<CR>", { desc = "Pin buffer", noremap = true })
 
 -- Git cli (fugitive)
 keymap("n", "<C-.>", ":Git add .", { desc = "Git add all", noremap = true })

@@ -1,10 +1,18 @@
-require'colorizer'.setup({'*';},{
-    RGB      = true;         -- #RGB hex codes
-    RRGGBB   = true;         -- #RRGGBB hex codes
-    names    = true;         -- "Name" codes like Blue
-    RRGGBBAA = true;         -- #RRGGBBAA hex codes
-    rgb_fn   = true;         -- CSS rgb() and rgba() functions
-    hsl_fn   = true;         -- CSS hsl() and hsla() functions
-    css      = true;         -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-    css_fn   = true;         -- Enable all CSS *functions*: rgb_fn, hsl_fn
-})
+return {
+  "norcalli/nvim-colorizer.lua",
+  event = { "BufReadPre", "BufNewFile" },
+  config = function()
+    require("colorizer").setup({
+      "*",
+    }, {
+      RGB      = true,  -- dukung format #RGB
+      RRGGBB   = true,  -- dukung format #RRGGBB
+      names    = true,  -- dukung warna nama, misalnya 'Red', 'Blue'
+      RRGGBBAA = true,  -- dukung format #RRGGBBAA (RGBA)
+      rgb_fn   = true,  -- dukung rgb() & rgba() CSS
+      hsl_fn   = true,  -- dukung hsl() & hsla() CSS
+      css      = true,  -- aktifkan semua fitur CSS (rgb, hsl, nama, hex)
+      css_fn   = true,  -- aktifkan semua fungsi CSS (rgb(), hsl(), dsb)
+    })
+  end,
+}

@@ -1,11 +1,6 @@
 plugin/
 
-.hugo_build.lock
-jsconfig.json
-
-# backup for frontmatter in vscode
-!frontmatter.json
-!.frontmatter/
+lazy-lock.json
 
 # Obsidian
 .obsidian/

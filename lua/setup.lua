@@ -29,53 +29,59 @@ end
 -- add list of plugins to install
 return packer.startup(function(use)
   -- packer can manage itself
-use("wbthomason/packer.nvim")
+    use("wbthomason/packer.nvim")
 
-use("navarasu/onedark.nvim")
+    use("navarasu/onedark.nvim")
 
--- file explorer
-use("nvim-tree/nvim-tree.lua")
+    -- file explorer
+    use("nvim-tree/nvim-tree.lua")
 
--- vs-code like icons
-use("nvim-tree/nvim-web-devicons")
+    -- vs-code like icons
+    use("nvim-tree/nvim-web-devicons")
 
--- statusline
-use("nvim-lualine/lualine.nvim")
+    -- statusline
+    use("nvim-lualine/lualine.nvim")
 
--- Colorizer
-use("norcalli/nvim-colorizer.lua")
+    -- Colorizer
+    use("norcalli/nvim-colorizer.lua")
 
--- Git wrapper so awesome
-use("tpope/vim-fugitive")
+    -- Git wrapper so awesome
+    use("tpope/vim-fugitive")
 
--- LSP
-use("neovim/nvim-lspconfig")
+    -- LSP
+    use("neovim/nvim-lspconfig")
 
--- Comment
-use({"numToStr/Comment.nvim", config = function() require('Comment').setup()end })
+    -- Comment
+    use({
+        'numToStr/Comment.nvim',
+        event = 'BufRead',
+        config = function()
+            require('Comment').setup()
+        end
+    })
 
--- Go to file
-use({
-    "nvim-telescope/telescope.nvim",
-    requires = {
-        { "nvim-lua/plenary.nvim" },
-        { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
-    }
-})
+    -- Go to file
+    use({
+        "nvim-telescope/telescope.nvim",
+        requires = {
+            { "nvim-lua/plenary.nvim" },
+            { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+        }
+    })
 
--- Autocompletion modern
-use({"saghen/blink.cmp",
-    version = "1.*",
-    --run = "cargo build --release",
-    requires = {
-        { "rafamadriz/friendly-snippets" },
-    }
-})
+    -- Autocompletion modern
+    use({"saghen/blink.cmp",
+        version = "1.*",
+        --run = "cargo build --release",
+        requires = {
+            { "rafamadriz/friendly-snippets" },
+        }
+    })
 
--- Plugin Discord Rich Presence
-use("vyfor/cord.nvim")
+    -- Plugin Discord Rich Presence
+    use("vyfor/cord.nvim")
 
- if packer_bootstrap then
-    require("packer").sync()
-  end
+     if packer_bootstrap then
+        require("packer").sync()
+      end
 end)
