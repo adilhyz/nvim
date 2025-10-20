@@ -1,5 +1,9 @@
 <center>
+
+
 ![Banner](./banner.png)
+
+
 </center>
 
 Nvim dotfiles, With lazy.nvim(https://github.com/folke/lazy.nvim)💤 Plugin
