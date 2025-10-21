@@ -73,7 +73,7 @@ git clone https://github.com/adilhyz/nvim ~/.config/nvim && nvim
 |     **Normal**     | `<A-p>`              | Pin buffer                    |
 |     **Normal**     | `<C-.>`              | Git add all files             |
 |     **Normal**     | `<C-,>`              | Git commit                    |
-|     **Normal**     | `<C-;>`              | Git push to master            |
+|     **Normal**     | `<C-;>`              | Git push to branch `master`   |
 |     **Normal**     | `<leader>o`          | Convert Markdown to PDF       |
 |     **Normal**     | `<leader>oq`         | Toggle KNAP auto-preview      |
 

@@ -51,7 +51,7 @@ return {
 		config = function()
 			vim.g.knap_settings = {
 				mdoutputext = "pdf",
-				mdtopdf = "pandoc  -o %outputfile% --pdf-engine=xelatex",
+				mdtopdf = "pandoc %docroot% -o %outputfile% --pdf-engine=xelatex --from markdown+raw_tex -V mainfont='Noto Sans' -V monofont='JetBrains Mono' -V CJKmainfont='Noto Sans CJK SC' -V emoji='Noto Color Emoji'",
 				mdtopdfviewerlaunch = "xdg-open %outputfile%",
 				mdtopdfviewerrefresh = "xdg-open %outputfile%",
 				mdtopdfbufferasstdin = false,
