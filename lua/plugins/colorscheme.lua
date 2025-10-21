@@ -1,7 +1,7 @@
 return {
 	"navarasu/onedark.nvim",
-	lazy = false, -- load langsung saat startup
-	priority = 1000, -- biar colorscheme dimuat duluan
+	lazy = false,
+	priority = 1000,
 	config = function()
 		local ok, onedark = pcall(require, "onedark")
 		if not ok then

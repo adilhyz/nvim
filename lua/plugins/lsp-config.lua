@@ -10,7 +10,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		event = { "BufReadPre", "BufNewFile" },
 		opts = {
-			ensure_installed = { "bashls", "lua_ls", "cssls", "pylsp" },
+			ensure_installed = { "bashls", "html", "lua_ls", "cssls", "pylsp" },
 			auto_install = true,
 		},
 	},
@@ -32,6 +32,8 @@ return {
 		-- 	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
 		-- end,
 	},
+
+
 	{
 		"meanderingprogrammer/render-markdown.nvim",
 		event = { "BufReadPre", "BufNewFile" },
@@ -41,5 +43,30 @@ return {
 				completions = { lsp = { enabled = true } },
 			})
 		end
+	},
+	{
+		"frabjous/knap",
+		lazy = false,
+		ft = { "markdown", "pandoc" },
+		config = function()
+			vim.g.knap_settings = {
+				mdoutputext = "pdf",
+				mdtopdf = "pandoc  -o %outputfile% --pdf-engine=xelatex",
+				mdtopdfviewerlaunch = "xdg-open %outputfile%",
+				mdtopdfviewerrefresh = "xdg-open %outputfile%",
+				mdtopdfbufferasstdin = false,
+			}
+
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = { "markdown", "pandoc" },
+				callback = function()
+					local knap = require("knap")
+					vim.keymap.set("n", "<leader>o", knap.process_once,
+						{ buffer = true, desc = "Knap: compile once" })
+					vim.keymap.set("n", "<leader>oq", knap.toggle_autopreviewing,
+						{ buffer = true, desc = "Knap: toggle auto preview" })
+				end,
+			})
+		end,
 	}
 }
