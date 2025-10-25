@@ -32,8 +32,6 @@ return {
 		-- 	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
 		-- end,
 	},
-
-
 	{
 		"meanderingprogrammer/render-markdown.nvim",
 		event = { "BufReadPre", "BufNewFile" },
@@ -49,16 +47,18 @@ return {
 		lazy = false,
 		ft = { "markdown", "pandoc" },
 		config = function()
+			-- Configure KNAP settings
 			vim.g.knap_settings = {
 				mdoutputext = "pdf",
 				mdtopdf = "pandoc %docroot% -o %outputfile% --pdf-engine=xelatex --from markdown+raw_tex -V mainfont='Noto Sans' -V monofont='JetBrains Mono' -V CJKmainfont='Noto Sans CJK SC' -V emoji='Noto Color Emoji'",
-				mdtopdfviewerlaunch = "xdg-open %outputfile%",
-				mdtopdfviewerrefresh = "xdg-open %outputfile%",
+				mdtopdfviewerlaunch = "zathura %outputfile%",
+				mdtopdfviewerrefresh = "none",
 				mdtopdfbufferasstdin = false,
 			}
 
+			-- Set up keymappings
 			vim.api.nvim_create_autocmd("FileType", {
-				pattern = { "markdown", "pandoc" },
+				pattern = { "markdown", "pandoc", "md" },
 				callback = function()
 					local knap = require("knap")
 					vim.keymap.set("n", "<leader>o", knap.process_once,
