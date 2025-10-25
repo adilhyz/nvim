@@ -45,6 +45,7 @@ git clone https://github.com/adilhyz/nvim ~/.config/nvim && nvim
 | `n`, `v`, `i`, `c` | `<C-x>`              | Cut to clipboard              |
 |      `n`, `i`      | `<C-z>`              | Undo                          |
 |      `n`, `i`      | `<C-y>`              | Redo                          |
+|      `n`, `v`      | `<leader>o`          | To-do (Top Right)             |
 |     **Insert**     | `<S-Left>`           | Select text left              |
 |     **Insert**     | `<S-Right>`          | Select text right             |
 |     **Insert**     | `<S-Up>`             | Select text up                |

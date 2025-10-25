@@ -36,6 +36,6 @@ return {
 		})
 
 		-- Keymap
-		vim.keymap.set("n", "<leader>td", ":Td<CR>", { silent = true, desc = "Open Floating Todo" })
+		vim.keymap.set({"n", "v"}, "<leader>td", ":Td<CR>", { silent = true, desc = "Open Floating Todo" })
 	end,
 }
