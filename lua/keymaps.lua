@@ -33,10 +33,6 @@ keymap("c", "<C-q>", "<cmd>quit<CR>", { noremap = true, silent = true })
 keymap("i", "<RightMouse>", "<cmd>popup! PopUp<cr>", { noremap = true, silent = true })
 keymap("v", "<RightMouse>", "<C-\\><C-g>gv<cmd>popup! PopUp<cr>", { noremap = true, silent = true })
 
--- Increment/decrement
--- keymap("n", "+", "<C-x>", { desc = "Increment numbers", noremap = true })
--- keymap("n", "-", "<C-z>", { desc = "Decrement numbers", noremap = true })
-
 -- keymap("n", "<C-f>", ":Telescope live_grep<CR>", { noremap = true, silent = false })
 -- keymap("n", "<C-h>", ":Telescope oldfiles<CR>", { noremap = true, silent = false })
 -- vim.api.nvim_create_user_command("Find", function()
@@ -44,9 +40,15 @@ keymap("v", "<RightMouse>", "<C-\\><C-g>gv<cmd>popup! PopUp<cr>", { noremap = tr
 -- end, {})
 -- keymap("n", "<C-f>", ":Find<CR>", { noremap = true, silent = true, desc = "Find string with Telescope" })
 
--- Find File
-keymap("n", "<C-p>", ":Telescope find_files hidden=true follow=true<CR>", { noremap = true, desc = "Find files" })
-keymap("n", "<C-f>", ":Telescope grep_string<CR>", { noremap = true, silent = true, desc = "Find string with Telescope" })
+-- New File
+keymap({ "n", "v" }, "<C-n>", ":enew | startinsert<CR>", { desc = "New File", noremap = true, silent = true })
+
+-- keymap("n", "<C-p>", ":Telescope find_files hidden=true follow=true<CR>", { noremap = true, desc = "Find files" })
+-- keymap("n", "<C-f>", ":Telescope grep_string<CR>", { noremap = true, silent = true, desc = "Find string with Telescope" })
+-- Find {files,Text,Config}
+keymap({"n", "v"}, "<C-p>", function() Snacks.picker.files() end, {desc = "Find Files" })
+keymap({"n", "v"}, "<C-f>", function() Snacks.dashboard.pick('live_grep') end, {desc = "Find Text" })
+keymap({"n", "v"}, "<C-.>", function() Snacks.dashboard.pick('files', { cwd = vim.fn.stdpath('config') }) end, {desc = "Find Files" })
 
 -- Move Text on row up and down For Normal mode
 keymap("n", "<A-Up>", ":m .-2<CR>==", { desc = "Move line up" })
@@ -58,12 +60,8 @@ keymap("v", "<A-Down>", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down" 
 
 -- Duplicate line (Ctrl+Shift+Up/Down)
 keymap({ "n", "i", "v" }, "<C-S-Up>", "<Esc>yyP`^a", { noremap = true, silent = true, desc = "Duplicate line up" })
-keymap({ "n", "i", "v" }, "<C-S-Down>", function()
-	duplicate("down")
-end, { silent = true, desc = "Duplicate line down" })
-keymap({ "n", "i", "v" }, "<C-S-Up>", function()
-	duplicate("up")
-end, { silent = true, desc = "Duplicate line up" })
+keymap({ "n", "i", "v" }, "<C-S-Down>", function() duplicate("down") end, { silent = true, desc = "Duplicate line down" })
+keymap({ "n", "i", "v" }, "<C-S-Up>", function() duplicate("up") end, { silent = true, desc = "Duplicate line up" })
 
 -- Comment code
 keymap("n", "<C-/>", "gcc", { desc = "toggle comment", remap = true })
@@ -134,21 +132,21 @@ keymap("n", "<leader>tn", ":tabn<CR>")
 keymap("n", "<leader>tp", ":tabp<CR>")
 
 -- nvim-tree
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>")
+keymap("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "File Explorer" })
 
 -- Barbar
-keymap("n", "<Tab>", ":BufferNext<CR>", { desc = "Move to next tab", noremap = true })
-keymap("n", "<S-Tab>", ":BufferPrevious<CR>", { desc = "Move to previous tab", noremap = true })
-keymap("n", "<leader>x", ":BufferClose<CR>", { desc = "Buffer close", noremap = true })
+keymap("n", "<C-Tab>", ":BufferNext<CR>", { desc = "Move to next tab", noremap = true })
+keymap("n", "<C-S-Tab>", ":BufferPrevious<CR>", { desc = "Move to previous tab", noremap = true })
+keymap("n", "<C-w>", ":BufferClose<CR>", { desc = "Buffer close", noremap = true })
 keymap("n", "<A-p>", ":BufferPin<CR>", { desc = "Pin buffer", noremap = true })
 
 -- Git cli (fugitive)
-keymap("n", "<C-.>", ":Git add .", { desc = "Git add all", noremap = true })
-keymap("n", "<C-,>", ":Git commit -m '<Left>'", { desc = "Git commit", noremap = true })
-keymap("n", "<C-;>", ":Git push origin master", { desc = "Git push", noremap = true })
+-- keymap("n", "<C-.>", ":Git add .", { desc = "Git add all", noremap = true })
+-- keymap("n", "<C-,>", ":Git commit -m '<Left>'", { desc = "Git commit", noremap = true })
+-- keymap("n", "<C-;>", ":Git push origin master", { desc = "Git push", noremap = true })
 
 -- Menu Neovim
-keymap({ "n", "v" }, "<RightMouse>", function()
+keymap({ "n", "v", "i" }, "<RightMouse>", function()
 	require('menu.utils').delete_old_menus()
 	exec '"normal! \\<RightMouse>"'
 	local buf = vim.api.nvim_win_get_buf(vim.fn.getmousepos().winid)
