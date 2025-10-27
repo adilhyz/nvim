@@ -40,7 +40,7 @@ return {
 					{ icon = " ", key = "<C-f>", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
 					{ icon = " ", key = "<C-.>", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
 					{ icon = " ", key = "<C-l>", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
-					{ icon = " ", key = "s", desc = "Restore Session", section = "session" },
+					-- { icon = " ", key = "s", desc = "Restore Session", section = "session" },
 					{ icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
 					{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
 				},
