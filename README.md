@@ -19,8 +19,8 @@ git clone https://github.com/adilhyz/nvim ~/.config/nvim && nvim
 ```
 :Lazy sync
 ```
-<img width="800" alt="Shot-2025-10-26-200121" src="https://github.com/user-attachments/assets/8a2fa10b-c8d8-4dd4-8c1f-1906ee359ced" />
 
+<img width="800" alt="Shot-2025-10-27-160419" src="https://github.com/user-attachments/assets/a0cc315b-506f-4fa0-b7ef-fee94cc445fa" />
 
 ## Keymap
 
