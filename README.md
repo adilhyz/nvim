@@ -24,7 +24,7 @@ git clone https://github.com/adilhyz/nvim ~/.config/nvim && nvim
 
 ## Keymap
 
-### Home Keymaps
+### 🛖Home Keymaps
 
 just use `nvim` on directory, no use ~`nvim ~/yourdirectory/ `~ for showing this keymaps:
 
@@ -41,66 +41,11 @@ just use `nvim` on directory, no use ~`nvim ~/yourdirectory/ `~ for showing this
 |     **Normal**     | `q`               | Quit                      |
 
 
-### Global Keymaps
 
-Global keymaps, this all for all keymaps except [#home-keymaps](Home Keymaps).
-
-
-### Global Keymaps
-
-Global keymaps, this applies to all mappings except [#home-keymaps](Home Keymaps).
-
+### 🧭 Navigation & File Management
 |        Mode        |         Key          |             Description              |
 |--------------------|----------------------|--------------------------------------|
-|     **Normal**     | `<leader>q`          | Quit Neovim                          |
-| `n`, `v`, `i`, `c` | `<C-q>`              | Quit from any mode                   |
-|      `n`, `v`, `i` | `<RightMouse>`       | Open right-click menu                |
-|     **Normal**     | `<C-p>`              | Find files (including hidden)        |
-|     **Normal**     | `<C-f>`              | Find text                            |
-|     **Normal**     | `<C-.>`              | Find config files                    |
-|     **Normal**     | `<C-l>`              | Recent files                         |
-|     **Normal**     | `<C-n>`              | New file                             |
-|     **Normal**     | `<C-w>`              | Close buffer                         |
-|    `n`, `i`, `v`   | `<C-S-Up>`           | Duplicate line up                    |
-|    `n`, `i`, `v`   | `<C-S-Down>`         | Duplicate line down                  |
-|     **Normal**     | `<A-Up>`             | Move line up                         |
-|     **Normal**     | `<A-Down>`           | Move line down                       |
-|     **Visual**     | `<A-Up>`             | Move selected block up               |
-|     **Visual**     | `<A-Down>`           | Move selected block down             |
-|    `n`, `v`, `i`   | `<C-/>`              | Toggle comment                       |
-|     **Normal**     | `<C-s>`              | Save file                            |
-|     **Normal**     | `<C-a>`              | Select all text                      |
-| `n`, `v`, `i`, `c` | `<C-c>`              | Copy to clipboard                    |
-| `n`, `v`, `i`, `c` | `<C-v>`              | Paste from clipboard                 |
-| `n`, `v`, `i`, `c` | `<C-x>`              | Cut to clipboard                     |
-|      `n`, `i`      | `<C-z>`              | Undo                                 |
-|      `n`, `i`      | `<C-y>`              | Redo                                 |
-|     **Insert**     | `<S-Left>`           | Select text left                     |
-|     **Insert**     | `<S-Right>`          | Select text right                    |
-|     **Insert**     | `<S-Up>`             | Select text up                       |
-|     **Insert**     | `<S-Down>`           | Select text down                     |
-|     **Insert**     | `<S-Home>`           | Select to line start                 |
-|     **Insert**     | `<S-End>`            | Select to line end                   |
-|     **Insert**     | `<S-PageUp>`         | Select one page up                   |
-|     **Insert**     | `<S-PageDown>`       | Select one page down                 |
-|     **Normal**     | `<C-h>`              | Replace text (global)                |
-|     **Normal**     | `<C-d>`              | Select next occurrence               |
-|     **Visual**     | `<Tab>`              | Indent right                         |
-|     **Visual**     | `<S-Tab>`            | Indent left                          |
-|     **Normal**     | `<leader>sv`         | Split vertically                     |
-|     **Normal**     | `<leader>sh`         | Split horizontally                   |
-|     **Normal**     | `<leader>se`         | Equalize split sizes                 |
-|     **Normal**     | `<leader>sx`         | Close split                          |
-|     **Normal**     | `te`                 | Edit in new tab                      |
-|     **Normal**     | `<C-Tab>`            | Next tab                             |
-|     **Normal**     | `<C-S-Tab>`          | Previous tab                         |
-|     **Normal**     | `<A-p>`              | Pin buffer                           |
-|     **Normal**     | `<leader>e`          | Toggle file explorer (NvimTree)      |
-|     **Normal**     | `<Tab>`              | Next buffer                          |
-|     **Normal**     | `<S-Tab>`            | Previous buffer                      |
-|     **Normal**     | `<leader>x`          | Close buffer                         |
-|     **Normal**     | `<leader>o`          | Convert Markdown to PDF              |
-|     **Normal**     | `<leader>oq`         | Toggle KNAP auto-preview             |
+|     **Normal**     | `<leader>e`          | Toggle file explorer                 |
 |     **Normal**     | `<leader><space>`    | Smart Find Files                     |
 |     **Normal**     | `<leader>,`          | Buffers                              |
 |     **Normal**     | `<leader>/`          | Grep                                 |
@@ -111,6 +56,78 @@ Global keymaps, this applies to all mappings except [#home-keymaps](Home Keymaps
 |     **Normal**     | `<leader>fg`         | Find Git Files                       |
 |     **Normal**     | `<leader>fp`         | Projects                             |
 |     **Normal**     | `<leader>fr`         | Recent                               |
+|     **Normal**     | `<leader>o`          | Convert Markdown to PDF              |
+|     **Normal**     | `<leader>oq`         | Toggle KNAP auto-preview             |
+|     **Normal**     | `<C-n>`              | New file                             |
+|     **Normal**     | `<C-.>`              | Show Config                          |
+|     **Normal**     | `<C-p>`              | Find files (including hidden)        |
+|     **Normal**     | `<C-f>`              | Find Text                            |
+
+
+### 💾 File Actions (Save, Quit, Undo, Redo)
+|        Mode        |         Key          |             Description              |
+|--------------------|----------------------|--------------------------------------|
+|     **Normal**     | `<C-s>`              | Save file                            |
+|     **Normal**     | `<leader>q`          | Quit Neovim                          |
+|  `n`, `v`, `i`, `c`| `<C-q>`              | Quit from any mode                   |
+|      `n`, `i`      | `<C-z>`              | Undo                                 |
+|      `n`, `i`      | `<C-y>`              | Redo                                 |
+
+
+### 📋Clipboard & Text
+|        Mode        |         Key          |             Description              |
+|--------------------|----------------------|--------------------------------------|
+|     **Normal**     | `<C-a>`              | Select all text                      |
+|  `n`, `v`, `i`, `c`| `<C-c>`              | Copy to clipboard                    |
+|  `n`, `v`, `i`, `c`| `<C-v>`              | Paste from clipboard                 |
+|  `n`, `v`, `i`, `c`| `<C-x>`              | Cut to clipboard                     |
+|    `n`, `i`, `v`   | `<C-/>`              | Toggle comment                       |
+|     **Normal**     | `<C-h>`              | Replace text (global)                |
+|     **Normal**     | `<C-d>`              | Select next occurrence               |
+
+
+### ✏️ Text Editing & Selection
+|        Mode        |         Key          |             Description              |
+|--------------------|----------------------|--------------------------------------|
+|    `n`, `i`, `v`   | `<C-S-Up>`           | Duplicate line up                    |
+|    `n`, `i`, `v`   | `<C-S-Down>`         | Duplicate line down                  |
+|     **Normal**     | `<A-j>`              | Move line down                       |
+|     **Normal**     | `<A-k>`              | Move line up                         |
+|     **Visual**     | `<A-j>`              | Move selected block down             |
+|     **Visual**     | `<A-k>`              | Move selected block up               |
+|     **Visual**     | `<Tab>`              | Indent right                         |
+|     **Visual**     | `<S-Tab>`            | Indent left                          |
+|     **Insert**     | `<S-Left>`           | Select text left                     |
+|     **Insert**     | `<S-Right>`          | Select text right                    |
+|     **Insert**     | `<S-Up>`             | Select text up                       |
+|     **Insert**     | `<S-Down>`           | Select text down                     |
+|     **Insert**     | `<S-Home>`           | Select to line start                 |
+|     **Insert**     | `<S-End>`            | Select to line end                   |
+|     **Insert**     | `<S-PageUp>`         | Select one page up                   |
+|     **Insert**     | `<S-PageDown>`       | Select one page down                 |
+
+
+### 🪟 Window & Buffer Management
+|        Mode        |         Key          |             Description              |
+|--------------------|----------------------|--------------------------------------|
+|     **Normal**     | `<leader>sv`         | Split vertically                     |
+|     **Normal**     | `<leader>sh`         | Split horizontally                   |
+|     **Normal**     | `<leader>se`         | Equalize split sizes                 |
+|     **Normal**     | `<leader>sx`         | Close split                          |
+|     **Normal**     | `te`                 | Edit in new tab                      |
+|     **Normal**     | `<C-Tab>`            | Next tab                             |
+|     **Normal**     | `<C-S-Tab>`          | Previous tab                         |
+|     **Normal**     | `<C-n>`              | New tab                              |
+|     **Normal**     | `<C-w>`              | Close tab                            |
+|     **Normal**     | `<Tab>`              | Next buffer                          |
+|     **Normal**     | `<S-Tab>`            | Previous buffer                      |
+|     **Normal**     | `<leader>x`          | Close buffer                         |
+|     **Normal**     | `<A-p>`              | Pin buffer                           |
+
+
+### 🧩 Git Integration & LSP
+|        Mode        |         Key          |             Description              |
+|--------------------|----------------------|--------------------------------------|
 |     **Normal**     | `<leader>gb`         | Git Branches                         |
 |     **Normal**     | `<leader>gl`         | Git Log                              |
 |     **Normal**     | `<leader>gL`         | Git Log Line                         |
@@ -124,6 +141,13 @@ Global keymaps, this applies to all mappings except [#home-keymaps](Home Keymaps
 |     **Normal**     | `gy`                 | Goto Type Definition                 |
 |     **Normal**     | `<leader>ss`         | LSP Symbols                          |
 |     **Normal**     | `<leader>sS`         | LSP Workspace Symbols                |
+
+
+### 🖱️ Miscellaneous
+|        Mode        |         Key          |             Description              |
+|--------------------|----------------------|--------------------------------------|
+|      `n`, `v`      | `<RightMouse>`       | Open right-click menu                |
+|     **Normal**     | `<leader>td`          | To-do (Top Right)                   |
 
 ## Thanks To
 

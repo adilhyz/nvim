@@ -4,12 +4,7 @@ return {
 	cmd = { "ConformInfo" },
 	keys = {
 		{
-			"<leader>s",
-			function()
-				require("conform").format({ async = true })
-			end,
-			mode = "",
-			desc = "Format buffer",
+			"<leader>s", function() require("conform").format({ async = true }) end, mode = "", desc = "Format buffer" 
 		},
 	},
 	config = function()
