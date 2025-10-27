@@ -9,7 +9,7 @@ return {
 		-- stylua: ignore
 		local lualine = require("lualine")
 		local colors = {
-			bg       = '#1a1b26',
+			bg       = '#16161e', -- #292e42 #1a1b26
 			fg       = '#a9b1d6',
 			yellow   = '#e0af68',
 			cyan     = '#7dcfff',
@@ -118,20 +118,14 @@ return {
 		})
 
 		ins_left({
-			"filesize",
-			cond = conditions.buffer_not_empty,
-			color = { fg = colors.yellow },
-		})
-
-		ins_left({
 			"filename",
 			cond = conditions.buffer_not_empty,
 			color = { fg = colors.cyan, gui = "bold" },
 		})
 
-		ins_left({ "location" })
+		-- ins_left({ "progress", color = { fg = colors.fg, gui = "bold" } })
 
-		ins_left({ "progress", color = { fg = colors.fg, gui = "bold" } })
+		ins_left({ "location" })
 
 		ins_left({
 			"diagnostics",
@@ -173,18 +167,24 @@ return {
 		})
 
 		-- 🡐 Right Components
-		ins_right({
-			"o:encoding",
-			fmt = string.upper,
-			cond = conditions.hide_in_width,
-			color = { fg = colors.green, gui = "bold" },
-		})
+		-- ins_right({
+		-- 	"o:encoding",
+		-- 	fmt = string.upper,
+		-- 	cond = conditions.hide_in_width,
+		-- 	color = { fg = colors.green, gui = "bold" },
+		-- })
+
+		-- ins_right({
+		-- 	"fileformat",
+		-- 	fmt = string.upper,
+		-- 	icons_enabled = false,
+		-- 	color = { fg = colors.green, gui = "bold" },
+		-- })
 
 		ins_right({
-			"fileformat",
-			fmt = string.upper,
-			icons_enabled = false,
-			color = { fg = colors.green, gui = "bold" },
+			"filesize",
+			cond = conditions.buffer_not_empty,
+			color = { fg = colors.yellow },
 		})
 
 		ins_right({
