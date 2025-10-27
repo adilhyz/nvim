@@ -1,4 +1,6 @@
--- Modes
+-- ╭─────────────────────────────────────────────────────────╮
+-- │ Modes                                                   │
+-- ╰─────────────────────────────────────────────────────────╯
 --   normal_mode       = 'n'
 --   insert_mode       = 'i'
 --   visual_mode       = 'v'
@@ -56,11 +58,6 @@ keymap("v", "<A-Down>", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down" 
 -- Duplicate line (Ctrl+Shift+Up/Down)
 keymap({ "n", "i", "v" }, "<C-S-Down>", function() duplicate("down") end, { silent = true, desc = "Duplicate line down" })
 keymap({ "n", "i", "v" }, "<C-S-Up>", function() duplicate("up") end, { silent = true, desc = "Duplicate line up" })
-
--- Comment code
-keymap("n", "<C-/>", "gcc", { desc = "toggle comment", remap = true })
-keymap("v", "<C-/>", "gc", { desc = "toggle comment", remap = true })
-keymap("i", "<C-/>", "<ESC>gc", { desc = "toggle comment", remap = true })
 
 -- Save current file (Ctrl+s)
 keymap("n", "<C-s>", ":w<cr>", { desc = "Save file", remap = true })

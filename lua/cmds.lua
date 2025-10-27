@@ -44,3 +44,8 @@ vim.api.nvim_create_autocmd('ModeChanged', {
 	pcall(vim.diagnostic.show)
   end
 })
+
+-- ╭─────────────────────────────────────────────────────────╮
+-- │ Keymap default                                          │
+-- ╰─────────────────────────────────────────────────────────╯
+vim.keymap.set({'n', 'v'}, 'd', '"_d', { noremap = true })

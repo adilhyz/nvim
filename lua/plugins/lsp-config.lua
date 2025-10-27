@@ -44,7 +44,6 @@ return {
 	},
 	{
 		"frabjous/knap",
-		lazy = false,
 		ft = { "markdown", "pandoc" },
 		config = function()
 			-- Configure KNAP settings

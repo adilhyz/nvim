@@ -94,6 +94,7 @@ just use `nvim` on directory, no use ~`nvim ~/yourdirectory/ `~ for showing this
 |     **Normal**     | `<A-k>`              | Move line up                         |
 |     **Visual**     | `<A-j>`              | Move selected block down             |
 |     **Visual**     | `<A-k>`              | Move selected block up               |
+|     **Visual**     | `<A-/>`              | Add comment                          |
 |     **Visual**     | `<Tab>`              | Indent right                         |
 |     **Visual**     | `<S-Tab>`            | Indent left                          |
 |     **Insert**     | `<S-Left>`           | Select text left                     |
@@ -127,8 +128,10 @@ just use `nvim` on directory, no use ~`nvim ~/yourdirectory/ `~ for showing this
 ### 🧩 Git Integration & LSP
 |        Mode        |         Key          |             Description              |
 |--------------------|----------------------|--------------------------------------|
+|     **Normal**     | `<leader>gg`         | Lazygit                              |
+|     **Normal**     | `<leader>gl`         | Lazygit                              |
+|     **Normal**     | `<leader>glf`         | Lazygit Log File                    |
 |     **Normal**     | `<leader>gb`         | Git Branches                         |
-|     **Normal**     | `<leader>gl`         | Git Log                              |
 |     **Normal**     | `<leader>gL`         | Git Log Line                         |
 |     **Normal**     | `<leader>gs`         | Git Status                           |
 |     **Normal**     | `<leader>gS`         | Git Stash                            |
@@ -147,6 +150,7 @@ just use `nvim` on directory, no use ~`nvim ~/yourdirectory/ `~ for showing this
 |--------------------|----------------------|--------------------------------------|
 |      `n`, `v`      | `<RightMouse>`       | Open right-click menu                |
 |     **Normal**     | `<leader>td`          | To-do (Top Right)                   |
+|     **Normal**     | `<leader>td`          | Zen Mode                            |
 
 ## Thanks To
 

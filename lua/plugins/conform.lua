@@ -4,7 +4,7 @@ return {
 	cmd = { "ConformInfo" },
 	keys = {
 		{
-			"<leader>s", function() require("conform").format({ async = true }) end, mode = "", desc = "Format buffer" 
+			"<leader>s", function() require("conform").format({ async = true }) end, mode = "", desc = "Format buffer"
 		},
 	},
 	config = function()
@@ -12,6 +12,9 @@ return {
 		conform.setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
+				python = { "isort", "black" },
+				sql = { "sql-formatter" },
+				xml = { "xmlformatter" },
 				javascript = { "prettierd", "prettier", stop_after_first = true },
 				javascriptreact = { "prettierd", "prettier", stop_after_first = true },
 				typescriptreact = { "prettierd", "prettier", stop_after_first = true },
@@ -25,6 +28,8 @@ return {
 				graphql = { "prettierd", "prettier" },
 				md = { "prettierd", "prettier" },
 				txt = { "prettierd", "prettier" },
+				toml = { "prettierd", "prettier" },
+				yml = { "prettierd", "prettier" },
 			},
 			default_format_opts = {
 				lsp_format = "fallback",
