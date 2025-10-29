@@ -80,7 +80,7 @@ just use `nvim` on directory, no use ~`nvim ~/yourdirectory/ `~ for showing this
 |  `n`, `v`, `i`, `c`| `<C-c>`              | Copy to clipboard                    |
 |  `n`, `v`, `i`, `c`| `<C-v>`              | Paste from clipboard                 |
 |  `n`, `v`, `i`, `c`| `<C-x>`              | Cut to clipboard                     |
-|    `n`, `i`, `v`   | `<C-/>`              | Toggle comment                       |
+|      `n`, `v`      | `<C-/>`              | Toggle comment                       |
 |     **Normal**     | `<C-h>`              | Replace text (global)                |
 |     **Normal**     | `<C-d>`              | Select next occurrence               |
 

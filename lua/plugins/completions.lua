@@ -4,7 +4,15 @@ return {
 	dependencies = "rafamadriz/friendly-snippets",
 	version = "1.*",
 	opts = {
-		keymap = { preset = "enter" },
+		keymap = {
+			-- preset = "enter"
+			["<CR>"]      = { "accept", "fallback" },
+			["<Tab>"]     = { "select_next", "fallback" },
+			["<S-Tab>"]   = { "select_prev", "fallback" },
+			["<Down>"]    = { "fallback" },
+			["<Up>"]      = { "fallback" },
+			["<C-Space>"] = { "show" },
+		},
 
 		appearance = {
 			nerd_font_variant = "mono",

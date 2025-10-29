@@ -5,28 +5,28 @@ return {
 		local target_file = vim.fn.expand("~/notes/todo.md")
 		local directory_path = vim.fn.fnamemodify(target_file, ":h")
 
-		-- Cek dan buat direktori jika belum ada
+		-- Check directory
 		if vim.fn.isdirectory(directory_path) == 0 then
-			vim.fn.mkdir(directory_path, "p") -- "p" buat parent folder juga
-			print("📁 Directory created: " .. directory_path)
+			vim.fn.mkdir(directory_path, "p") -- parent folders 
+			print("📁 To-do Directory created: " .. directory_path)
 		else
-			-- print("✅ Directory already exists: " .. directory_path)
+			-- print("✅ To-do Directory already exists: " .. directory_path)
 		end
 
-		-- Kalau file belum ada, buat file kosong (touch)
+		-- touch file
 		if vim.fn.filereadable(target_file) == 0 then
 			-- writefile dengan array kosong akan membuat file kosong
 			local ok, err = pcall(vim.fn.writefile, {}, target_file)
 			if ok then
-				print("📝 File created: " .. target_file)
+				print("📝 To-do File created: " .. target_file)
 			else
-				vim.notify("Gagal membuat file: " .. tostring(err), vim.log.levels.ERROR)
+				vim.notify("Failed to Create file: " .. tostring(err), vim.log.levels.ERROR)
 			end
 		else
-			-- print("✅ File already exists: " .. target_file)
+			-- print("✅ To-do File already exists: " .. target_file)
 		end
 
-		-- Konfigurasi plugin
+		-- Floating todo
 		floatingtodo.setup({
 			target_file = target_file,
 			border = "single", -- single, rounded, etc.
