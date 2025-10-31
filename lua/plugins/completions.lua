@@ -2,13 +2,14 @@ return {
 	"saghen/blink.cmp",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = "rafamadriz/friendly-snippets",
+	dependencies = "L3MON4D3/LuaSnip",
 	version = "1.*",
 	opts = {
 		keymap = {
 			-- preset = "enter"
 			["<CR>"]      = { "accept", "fallback" },
-			["<Tab>"]     = { "select_next", "fallback" },
-			["<S-Tab>"]   = { "select_prev", "fallback" },
+			["<C-S-Down>"]     = { "select_next", "fallback" },
+			["<C-S-Up>"]   = { "select_prev", "fallback" },
 			["<Down>"]    = { "fallback" },
 			["<Up>"]      = { "fallback" },
 			["<C-Space>"] = { "show" },

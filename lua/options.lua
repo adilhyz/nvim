@@ -37,9 +37,7 @@ opt.signcolumn = "yes"
 opt.backspace = "indent,eol,start"
 
 -- Clipboard 
-schedule(function()
-  opt.clipboard = 'unnamedplus'
-end)
+schedule(function() opt.clipboard = 'unnamedplus' end)
 
 -- Splitt Windows
 opt.splitright = true

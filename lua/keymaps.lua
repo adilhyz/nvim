@@ -40,12 +40,18 @@ keymap("v", "<RightMouse>", "<C-\\><C-g>gv<cmd>popup! PopUp<cr>", { noremap = tr
 
 -- New File
 keymap("n", "<C-n>", ":enew | startinsert<CR>", { desc = "New File", noremap = true, silent = true })
+keymap("n", "<C-t>", ":enew | startinsert<CR>", { desc = "New File", noremap = true, silent = true })
 keymap("n", "<C-w>", ":BufferClose<CR>", { desc = "Buffer close", noremap = true })
 
 -- Find {files,Text,Config}
-keymap({"n", "v"}, "<C-p>", function() Snacks.picker.files() end, {desc = "Find Files" })
-keymap({"n", "v"}, "<C-f>", function() Snacks.dashboard.pick('live_grep') end, {desc = "Find Text" })
-keymap({"n", "v"}, "<C-.>", function() Snacks.dashboard.pick('files', { cwd = vim.fn.stdpath('config') }) end, {desc = "Find Files" })
+keymap({ "n", "v" }, "<C-k>", function() Snacks.picker.keymaps() end, { desc = "Search Keymaps" })
+keymap({ "n", "v" }, "<C-p>", function() Snacks.picker.files() end, { desc = "Find Files" })
+keymap({ "n", "v" }, "<C-f>", function() Snacks.dashboard.pick('live_grep', { search_dirs = { vim.api.nvim_buf_get_name(0) } }) end, { desc = "Find Text (current file only)" })
+keymap({ "n", "v" }, "<C-.>", function() Snacks.dashboard.pick('files', { cwd = vim.fn.stdpath('config') }) end, { desc = "Find Files" })
+
+-- Replace Text
+keymap("n", "<C-h>", ":%s/<Left>/<Left>/g", { desc = "Replace text (global)" })
+keymap("n", "<C-d>", "*N", { desc = "Select next occurrence" })
 
 -- Move Text on row up and down For Normal mode
 keymap("n", "<A-Up>", ":m .-2<CR>==", { desc = "Move line up" })
@@ -101,13 +107,9 @@ keymap('i', '<S-End>', '<C-o>v$', { noremap = true, silent = true, desc = 'Selec
 keymap('i', '<S-PageUp>', '<C-o>v<C-u>', { noremap = true, silent = true, desc = 'Select page up' })
 keymap('i', '<S-PageDown>', '<C-o>v<C-d>', { noremap = true, silent = true, desc = 'Select page down' })
 
--- Replace Text
-keymap("n", "<C-h>", ":%s/<Left>/<Left>/g", { desc = "Replace text (global)" })
-keymap("n", "<C-d>", "*N", { desc = "Select next occurrence" })
-
 -- Tab Key
-keymap("v", "<Tab>", ">gv", { desc = "Indenting", silent = true, noremap = true })
-keymap("v", "<S-Tab>", "<gv", { desc = "Indenting", silent = true, noremap = true })
+keymap("v", "<Tab>", ">gv", { desc = "Indenting", noremap = true, silent = true })
+keymap("v", "<S-Tab>", "<gv", { desc = "Indenting", noremap = true, silent = true })
 
 -- window management split
 keymap("n", "<leader>sv", "<C-w>v")
@@ -119,9 +121,9 @@ keymap("n", "<leader>sx", ":close<CR>")
 keymap("n", "te", ":tabedit")
 
 -- Barbar (Tab)
-keymap("n", "<C-Tab>", ":BufferNext<CR>", { desc = "Move to next tab", noremap = true })
-keymap("n", "<C-S-Tab>", ":BufferPrevious<CR>", { desc = "Move to previous tab", noremap = true })
-keymap("n", "<A-p>", ":BufferPin<CR>", { desc = "Pin buffer", noremap = true })
+keymap("n", "<C-Tab>", ":BufferNext<CR>", { desc = "Move to next tab", noremap = true, silent = true })
+keymap("n", "<C-S-Tab>", ":BufferPrevious<CR>", { desc = "Move to previous tab", noremap = true, silent = true })
+keymap("n", "<A-p>", ":BufferPin<CR>", { desc = "Pin buffer", noremap = true, silent = true })
 
 -- Menu Neovim
 keymap({ "n", "v", "i" }, "<RightMouse>", function() require('menu.utils').delete_old_menus() exec '"normal! \\<RightMouse>"' local buf = vim.api.nvim_win_get_buf(vim.fn.getmousepos().winid) local options = vim.bo[buf].ft == "NvimTree" and "nvimtree" or "default" require("menu").open(options, { mouse = true }) end, {})
