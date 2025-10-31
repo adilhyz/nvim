@@ -66,10 +66,10 @@ keymap({ "n", "i", "v" }, "<C-S-Down>", function() duplicate("down") end, { sile
 keymap({ "n", "i", "v" }, "<C-S-Up>", function() duplicate("up") end, { silent = true, desc = "Duplicate line up" })
 
 -- Save current file (Ctrl+s)
-keymap("n", "<C-s>", ":w<cr>", { desc = "Save file", remap = true })
+keymap("n", "<C-s>", ":w<cr>", { desc = "Save file", noremap = true })
 
 -- Select all (Ctrl+A)
-keymap("n", "<C-a>", "gg<S-v>G", { desc = "Select all", noremap = true })
+keymap("n", "<C-a>", "gg<S-v>G", { desc = "Select all", noremap = true, silent = true })
 
 -- Mapping for copy (ctrl+c)
 keymap('n', '<C-c>', '"+y', { noremap = true, silent = true })
