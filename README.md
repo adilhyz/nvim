@@ -149,8 +149,9 @@ just use `nvim` on directory, no use ~`nvim ~/yourdirectory/ `~ for showing this
 |        Mode        |         Key          |             Description              |
 |--------------------|----------------------|--------------------------------------|
 |      `n`, `v`      | `<RightMouse>`       | Open right-click menu                |
-|     **Normal**     | `<leader>td`          | To-do (Top Right)                   |
-|     **Normal**     | `<leader>td`          | Zen Mode                            |
+|     **Normal**     | `<C-S-`>`            | Open Terminal on foter like VScode   |
+|     **Normal**     | `<leader>td`         | To-do (Top Right)                    |
+|     **Normal**     | `<leader>td`         | Zen Mode                             |
 
 ## Thanks To
 

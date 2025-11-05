@@ -10,7 +10,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		event = { "BufReadPre", "BufNewFile" },
 		opts = {
-			ensure_installed = { "bashls", "html", "lua_ls", "cssls", "pylsp" },
+			ensure_installed = { "bashls", "html", "lua_ls", "cssls", "pylsp", "laravel_ls" },
 			auto_install = true,
 		},
 	},
@@ -49,7 +49,8 @@ return {
 			-- Configure KNAP settings
 			vim.g.knap_settings = {
 				mdoutputext = "pdf",
-				mdtopdf = "pandoc %docroot% -o %outputfile% --pdf-engine=xelatex --from markdown+raw_tex -V mainfont='Noto Sans' -V monofont='JetBrains Mono' -V CJKmainfont='Noto Sans CJK SC' -V emoji='Noto Color Emoji'",
+				mdtopdf =
+				"pandoc %docroot% -o %outputfile% --pdf-engine=xelatex --from markdown+raw_tex -V mainfont='Noto Sans' -V monofont='JetBrains Mono' -V CJKmainfont='Noto Sans CJK SC' -V emoji='Noto Color Emoji'",
 				mdtopdfviewerlaunch = "zathura %outputfile%",
 				mdtopdfviewerrefresh = "none",
 				mdtopdfbufferasstdin = false,
