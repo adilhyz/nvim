@@ -82,6 +82,7 @@ just use `nvim` on directory, no use ~`nvim ~/yourdirectory/ `~ for showing this
 |  `n`, `v`, `i`, `c`| `<C-x>`              | Cut to clipboard                     |
 |      `n`, `v`      | `<C-/>`              | Toggle comment                       |
 |     **Normal**     | `<C-h>`              | Replace text (global)                |
+|     **Normal**     | `<C-g>`              | Go to line line number(int)          |
 |     **Normal**     | `<C-d>`              | Select next occurrence               |
 
 
@@ -149,7 +150,7 @@ just use `nvim` on directory, no use ~`nvim ~/yourdirectory/ `~ for showing this
 |        Mode        |         Key          |             Description              |
 |--------------------|----------------------|--------------------------------------|
 |      `n`, `v`      | `<RightMouse>`       | Open right-click menu                |
-|     **Normal**     | `<C-S-``>            | Open Terminal on foter like VScode   |
+|     **Normal**     | `<C-S-\``>           | Open Terminal on footer like VS Code |
 |     **Normal**     | `<leader>td`         | To-do (Top Right)                    |
 |     **Normal**     | `<leader>td`         | Zen Mode                             |
 
