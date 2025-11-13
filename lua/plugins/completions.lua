@@ -4,7 +4,7 @@ return {
 	dependencies = { "rafamadriz/friendly-snippets", "moyiz/blink-emoji.nvim",
 		{
 			-- snippet plugin
-			"L4MON4D3/LuaSnip",
+			"L3MON4D3/LuaSnip",
 			dependencies = "rafamadriz/friendly-snippets",
 			opts = { history = true, updateevents = "TextChanged,TextChangedI" },
 			config = function(_, opts)
@@ -35,7 +35,7 @@ return {
 			end,
 		}
 	},
-	version = "2.*",
+	version = "1.*",
 	opts = {
 		keymap = {
 			-- preset = "enter"
@@ -50,14 +50,15 @@ return {
 			enabled = true,
 		},
 		completion = {
+			accept = { auto_brackets = { enabled = true } },
 			menu = {
 				border = "single",
 				draw = {
 					columns = {
 						{ "label",     "label_description", gap = 1 },
-						{ "kind_icon", gap = 1, "kind" },
+						{ "kind_icon", gap = 1,             "kind" },
 					},
-					treesitter = { 'lsp' },
+					treesitter = { "lsp" },
 				},
 			},
 			documentation = {
@@ -71,7 +72,7 @@ return {
 
 		signature = {
 			enabled = true,
-			window = { border = 'single', show_documentation = false },
+			window = { border = "single", show_documentation = false },
 		},
 		snippets = {
 			preset = "luasnip", -- Choose LuaSnip as the snippet engine
