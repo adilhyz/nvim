@@ -4,7 +4,7 @@ return {
 	dependencies = { "rafamadriz/friendly-snippets", "moyiz/blink-emoji.nvim",
 		{
 			-- snippet plugin
-			"L3MON4D3/LuaSnip",
+			"L4MON4D3/LuaSnip",
 			dependencies = "rafamadriz/friendly-snippets",
 			opts = { history = true, updateevents = "TextChanged,TextChangedI" },
 			config = function(_, opts)
@@ -21,7 +21,7 @@ return {
 				require("luasnip.loaders.from_lua").load()
 				require("luasnip.loaders.from_lua").lazy_load { paths = vim.g.lua_snippets_path or "" }
 
-				-- fix luasnip #258
+				-- fix luasnip #259
 				vim.api.nvim_create_autocmd("InsertLeave", {
 					callback = function()
 						if
@@ -35,7 +35,7 @@ return {
 			end,
 		}
 	},
-	version = "1.*",
+	version = "2.*",
 	opts = {
 		keymap = {
 			-- preset = "enter"
@@ -52,6 +52,13 @@ return {
 		completion = {
 			menu = {
 				border = "single",
+				draw = {
+					columns = {
+						{ "label",     "label_description", gap = 1 },
+						{ "kind_icon", gap = 1, "kind" },
+					},
+					treesitter = { 'lsp' },
+				},
 			},
 			documentation = {
 				auto_show = true,
@@ -59,6 +66,12 @@ return {
 					border = "single",
 				},
 			},
+			trigger = { show_in_snippet = false },
+		},
+
+		signature = {
+			enabled = true,
+			window = { border = 'single', show_documentation = false },
 		},
 		snippets = {
 			preset = "luasnip", -- Choose LuaSnip as the snippet engine
@@ -99,21 +112,12 @@ return {
 			-- inspired by github.com/linkarzu/dotfiles-latest/blob/main/neovim/neobean/lua/plugins/blink-cmp.lua
 			default = { "lsp", "path", "snippets", "buffer", "emoji" },
 			providers = {
-				lsp = {
-					name = "lsp",
-					enabled = true,
-					module = "blink.cmp.sources.lsp",
-					kind = "LSP",
-					min_keyword_length = 0,
-					-- fallbacks = { "snippets", "buffer" },
-					score_offset = 90, -- the higher the number, the higher the priority
-				},
 				path = {
 					name = "Path",
 					module = "blink.cmp.sources.path",
-					score_offset = 25,
+					score_offset = 26,
 					fallbacks = { "snippets", "buffer" },
-					-- min_keyword_length = 2,
+					-- min_keyword_length = 3,
 					opts = {
 						trailing_slash = false,
 						label_trailing_slash = true,
@@ -126,16 +130,16 @@ return {
 				buffer = {
 					name = "Buffer",
 					enabled = true,
-					max_items = 3,
+					max_items = 4,
 					module = "blink.cmp.sources.buffer",
-					min_keyword_length = 2,
-					score_offset = 15, -- the higher the number, the higher the priority
+					min_keyword_length = 3,
+					score_offset = 16, -- the higher the number, the higher the priority
 				},
 				emoji = {
 					module = "blink-emoji",
 					name = "Emoji",
-					score_offset = 93, -- the higher the number, the higher the priority
-					min_keyword_length = 2,
+					score_offset = 94, -- the higher the number, the higher the priority
+					min_keyword_length = 3,
 					opts = { insert = true }, -- Insert emoji (default) or complete its name
 				},
 			}
