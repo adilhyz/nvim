@@ -125,5 +125,9 @@ keymap("n", "<C-Tab>", ":BufferNext<CR>", { desc = "Move to next tab", noremap =
 keymap("n", "<C-S-Tab>", ":BufferPrevious<CR>", { desc = "Move to previous tab", noremap = true, silent = true })
 keymap("n", "<A-p>", ":BufferPin<CR>", { desc = "Pin buffer", noremap = true, silent = true })
 
+-- Markdown Preview
+keymap("n", "<A-o>", ":MarkdownPreviewToggle<CR>", { desc = "Markdown Preview", noremap = true, silent = true })
+keymap("n", "<A-z>", ":MarkdownPreviewStop<CR>", { desc = "Markdown Preview stop", noremap = true, silent = true })
+
 -- Menu Neovim
 keymap({ "n", "v", "i" }, "<RightMouse>", function() require('menu.utils').delete_old_menus() exec '"normal! \\<RightMouse>"' local buf = vim.api.nvim_win_get_buf(vim.fn.getmousepos().winid) local options = vim.bo[buf].ft == "NvimTree" and "nvimtree" or "default" require("menu").open(options, { mouse = true }) end, {})

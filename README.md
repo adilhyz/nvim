@@ -20,7 +20,7 @@ git clone https://github.com/adilhyz/nvim ~/.config/nvim && nvim
 :Lazy sync
 ```
 <img alt="Shot-2025-10-27-165616" src="https://github.com/user-attachments/assets/e3c8f374-464a-463f-b915-f8e2c96c1c95" />
-
+<img alt="Shot-2025-11-13-161011" src="https://github.com/user-attachments/assets/0ff1208f-c300-4eb1-bfb3-7c4df992b0c8" />
 
 ## Keymap
 
@@ -142,6 +142,13 @@ just use `nvim` on directory, no use ~`nvim ~/yourdirectory/ `~ for showing this
 |     **Normal**     | <kbd>gy</kbd>                       | Goto Type Definition                 |
 |     **Normal**     | <kbd>&lt;leader&gt;ss</kbd>         | LSP Symbols                          |
 |     **Normal**     | <kbd>&lt;leader&gt;sS</kbd>         | LSP Workspace Symbols                |
+
+
+### 🗂️ Preview
+|        Mode        |              Key               |         Description        |
+|--------------------|--------------------------------|----------------------------|
+|      **Normal**    | <kbd>&lt;Alt-o&gt;</kbd>       | Markdown Preview Toggle    |
+|      **Normal**    | <kbd>&lt;Alt-z&gt;</kbd>       | Markdown Preview Stop      |
 
 
 ### 🖱️ Miscellaneous
