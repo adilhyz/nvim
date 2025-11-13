@@ -51,7 +51,7 @@ return {
 				-- print("✅ To-do Directory already exists: " .. directory_path)
 			end
 
-			-- NOTE: touch file
+			-- INFO: touch file
 			if vim.fn.filereadable(target_file) == 0 then
 				-- writefile dengan array kosong akan membuat file kosong
 				local ok, err = pcall(vim.fn.writefile, {}, target_file)
@@ -73,7 +73,7 @@ return {
 				position = "topright", -- topleft, topright, bottomleft, bottomright
 			})
 
-			-- Keymap
+			-- NOTE: Keymap
 			vim.keymap.set({ "n", "v" }, "<leader>td", ":Td<CR>", { silent = true, desc = "Open Floating Todo" })
 		end,
 	}
