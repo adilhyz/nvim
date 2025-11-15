@@ -6,9 +6,9 @@ opt.mouse = "a"
 g.have_nerd_font = true
 opt.relativenumber = true
 opt.number = true
-opt.autoindent = true
-opt.wrap = true
-opt.breakindent = true
+
+opt.swapfile = false
+opt.backup = false
 opt.undofile = true
 
 -- tabs & indentation
@@ -17,13 +17,14 @@ opt.tabstop = 4
 opt.shiftwidth = 4
 opt.softtabstop = 4
 opt.autoindent = true
-
--- Line wrapping
+opt.smartindent = true
+opt.breakindent = true
 opt.wrap = false
 
 -- Search setting
 opt.ignorecase = true
 opt.smartcase = true
+opt.incsearch = true
 
 -- Cursor line
 opt.cursorline = true
@@ -36,16 +37,17 @@ opt.signcolumn = "yes"
 -- Backspace
 opt.backspace = "indent,eol,start"
 
--- Clipboard 
+-- Clipboard
 schedule(function() opt.clipboard = 'unnamedplus' end)
 
 -- Splitt Windows
+opt.inccommand = 'split'
 opt.splitright = true
 opt.splitbelow = true
 opt.list = true
 opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
-opt.inccommand = 'split'
 opt.scrolloff = 10
 
 opt.confirm = true
 opt.iskeyword:append("-")
+opt.isfname:append("@-@")

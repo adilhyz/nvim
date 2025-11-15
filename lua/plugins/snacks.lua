@@ -89,13 +89,12 @@ return {
 	},
 
 	keys = {
-		-- { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" }, --disabled explorer
 		-- ╭─────────────────────────────────────────────────────────╮
 		-- │ Zen Mode                                                │
 		-- ╰─────────────────────────────────────────────────────────╯
 		{ "<leader>z",       function() Snacks.zen({ win = { width = 200 } }) end,                   desc = "Zen Mode" },
 		{ "<leader>Z",       function() Snacks.zen.zoom() end,                                       desc = "Zoom Mode" },
-		-- Top Pickers & 
+		-- Top Pickers &
 		{ "<leader><space>", function() Snacks.picker.smart() end,                                   desc = "Smart Find Files" },
 		{ "<leader>,",       function() Snacks.picker.buffers() end,                                 desc = "Buffers" },
 		{ "<leader>/",       function() Snacks.picker.grep() end,                                    desc = "Grep" },
@@ -107,6 +106,8 @@ return {
 		{ "<leader>fg",      function() Snacks.picker.git_files() end,                               desc = "Find Git Files" },
 		{ "<leader>fp",      function() Snacks.picker.projects() end,                                desc = "Projects" },
 		{ "<leader>fr",      function() Snacks.picker.recent() end,                                  desc = "Recent" },
+		-- Helper
+		{ "<leader>h",       function() Snacks.picker.help() end,                                    desc = "Help Pages" },
 		-- ╭─────────────────────────────────────────────────────────╮
 		-- │ Lazygit                                                 │
 		-- ╰─────────────────────────────────────────────────────────╯
@@ -127,6 +128,7 @@ return {
 		{ "gy",              function() Snacks.picker.lsp_type_definitions() end,                    desc = "Goto T[y]pe Definition" },
 		{ "<leader>ss",      function() Snacks.picker.lsp_symbols() end,                             desc = "LSP Symbols" },
 		{ "<leader>sS",      function() Snacks.picker.lsp_workspace_symbols() end,                   desc = "LSP Workspace Symbols" },
+		-- { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" }, --disabled explorer
 	},
 
 }

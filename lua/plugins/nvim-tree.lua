@@ -21,7 +21,7 @@ return {
 				},
 			},
 			filters = {
-				dotfiles = true,
+				dotfiles = false,
 			},
 			update_focused_file = { enable = true },
 			actions = {
