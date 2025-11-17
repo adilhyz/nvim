@@ -152,10 +152,11 @@ just use `nvim` on directory, no use ~`nvim ~/yourdirectory/ `~ for showing this
 
 
 ### 🖱️ Miscellaneous
-|        Mode        |         Key          |             Description              |
-|--------------------|----------------------|--------------------------------------|
+|        Mode        |                Key                  |             Description              |
+|--------------------|-------------------------------------|--------------------------------------|
 |      `n`, `v`      | <kbd>&lt;RightMouse&gt;</kbd>       | Open right-click menu                |
-|     **Normal**     | <kbd>&lt;C-S-`&gt;</kbd>           | Open Terminal on footer like VS Code |
+|     **Normal**     | <kbd>&lt;C-`&gt;</kbd>              | Open Terminal on footer like VS Code |
+|     **Normal**     | <kbd>&lt;C-S-`&gt;</kbd>            | Open Terminal on footer like VS Code |
 |     **Normal**     | <kbd>&lt;leader&gt;td</kbd>         | To-do (Top Right)                    |
 |     **Normal**     | <kbd>&lt;leader&gt;td</kbd>         | Zen Mode                             |
 
